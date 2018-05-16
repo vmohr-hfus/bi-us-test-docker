@@ -1,11 +1,13 @@
 import pandas
 import datetime
 
-_FILE_PATH = '/data/'
+_INPUT_FILE_PATH = '/data/input_data/'
+_OUTPUT_FILE_PATH = '/data/output_data/'
+
 
 class simpleetl(object):
     def input(self):
-        input_file = _FILE_PATH + 'data.csv'
+        input_file = _INPUT_FILE_PATH + 'data.csv'
         df = pandas.read_csv(input_file, sep='|')
 
         return df
@@ -15,13 +17,13 @@ class simpleetl(object):
 
         return df
 
-    def output(self, df):
-        output_file = _FILE_PATH + 'data_w_date.csv'
+    def output(self, df, args):
+        output_file = _OUTPUT_FILE_PATH + args.output_name
 
         df.to_csv(output_file, sep=',', encoding='utf-8')
         exit(1)
 
-    def run(self):
+    def run(self, args):
         df = self.input()
         df = self.main(df)
-        self.output(df)
+        self.output(df, args)

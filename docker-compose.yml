@@ -24,5 +24,6 @@ services:
       - ./code/:/hellofresh
       - ../bi-spark-executables:/hellofresh/bi-spark-executables
       - ../data/test_data/:/data
+
 #    environment:
 #      - CONFIG_PATH=scripts/config.yml
