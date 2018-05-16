@@ -18,7 +18,9 @@ class simpleetl(object):
         return df
 
     def output(self, df, args):
-        output_file = _OUTPUT_FILE_PATH + args.output_name
+        output_file = (_OUTPUT_FILE_PATH + args.output_name + "_"
+                       + datetime.datetime.now().strftime('%Y_%m_%d')
+                       + ".csv")
 
         df.to_csv(output_file, sep=',', encoding='utf-8')
         exit(1)
