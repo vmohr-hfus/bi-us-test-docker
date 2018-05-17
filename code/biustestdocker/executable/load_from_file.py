@@ -1,7 +1,7 @@
 import psycopg2
 
-from biustestdocker.etl import simple_etl
 from biustestdocker.common import parser_config
+from biustestdocker.etl.simple_etl import MyTransformation
 
 import pandas
 import datetime
